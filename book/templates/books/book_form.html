@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Create Book{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+
+    <h1 class="text-center">Add New Book</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-sm-4">
+            {{ form.title | as_crispy_field }}
+          </div>
+          <div class="col-sm-4">
+            {{ form.author | as_crispy_field }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            {{ form.price | as_crispy_field }}
+          </div>
+          <div class="col-sm-4">
+            {{ form.quantity | as_crispy_field }}
+          </div>
+        </div>
+        {{ form.cover_pic | as_crispy_field }}
+        {{ form.pdf_file | as_crispy_field }}
+        <div class="row">
+          <div class="col-sm-8">
+            {{ form.description | as_crispy_field }}
+          </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+{% endblock %}
